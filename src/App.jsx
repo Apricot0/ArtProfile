@@ -46,7 +46,7 @@ export default function App() {
                 <h1 className="font-display mb-[26px] max-w-[20ch] text-[clamp(3.25rem,5vw,5.2rem)] leading-[0.92] font-medium tracking-[-0.02em] max-[640px]:max-w-none">
                   Creating Art That Speaks to the Soul
                 </h1>
-                <p className={`mb-[30px] max-w-[36rem] ${bodyCopyClass} text-[#5a5a5a]`}>
+                <p className={`mb-[30px] max-w-[42rem] ${bodyCopyClass} text-[#5a5a5a]`}>
                   Contemporary artist exploring the boundaries of color, texture,
                   and emotion through various mediums.
                 </p>
@@ -65,7 +65,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="portfolio" className="px-0 py-6 pb-20">
+        <section id="illustration" className="px-0 py-6 pb-20">
           <div className={containerClass}>
             <SectionHeader className="mb-[34px]">Illustration</SectionHeader>
 
@@ -79,7 +79,7 @@ export default function App() {
                   />
                   <div>
                     <h3 className={`${cardTitleClass} mb-[14px]`}>{item.title}</h3>
-                    <p className={`${bodyCopyClass} max-w-[21ch] max-[900px]:max-w-none`}>
+                    <p className={`${bodyCopyClass} max-w-[30ch] max-[900px]:max-w-none`}>
                       {item.description}
                     </p>
                   </div>
@@ -89,7 +89,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="about" className="px-0 py-6 pb-20 max-[640px]:pt-3 max-[640px]:pb-12">
+        <section id="traditional-arts" className="px-0 py-6 pb-20 max-[640px]:pt-3 max-[640px]:pb-12">
           <div className={containerClass}>
             <div className="grid items-start gap-10 lg:grid-cols-2 max-[900px]:gap-8">
               <div className="flex h-full flex-col pt-[10px]">
@@ -101,7 +101,7 @@ export default function App() {
                   {traditionalArtItems.map((item) => (
                     <article key={item.title}>
                       <h5 className={`${cardTitleClass} mb-[10px]`}>{item.title}</h5>
-                      <p className={`${bodyCopyClass} max-w-[20ch] max-[900px]:max-w-none`}>
+                      <p className={`${bodyCopyClass} max-w-[28ch] max-[900px]:max-w-none`}>
                         {item.description}
                       </p>
                     </article>
@@ -129,7 +129,7 @@ export default function App() {
           </div>
         </section>
 
-        <section className="px-0 pt-3 pb-[100px] max-[640px]:pb-16">
+        <section id="concept-art" className="px-0 pt-3 pb-[100px] max-[640px]:pb-16">
           <div className={containerClass}>
             <SectionHeader className="mb-[58px] max-[640px]:mb-[34px]">
               Concept Art
@@ -145,7 +145,7 @@ export default function App() {
                   />
                   <div>
                     <h3 className={`${cardTitleClass} mb-[14px]`}>{item.title}</h3>
-                    <p className={`${bodyCopyClass} max-w-[21ch] max-[900px]:max-w-none`}>
+                    <p className={`${bodyCopyClass} max-w-[30ch] max-[900px]:max-w-none`}>
                       {item.description}
                     </p>
                   </div>

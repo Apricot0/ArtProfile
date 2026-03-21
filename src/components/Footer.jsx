@@ -27,7 +27,7 @@ function SocialIcon({ label, children }) {
 export default function Footer() {
   return (
     <footer id="contact" className="mt-[10px]">
-      <section className="border-y border-[#d8d8d8] px-0 py-[78px] pb-[66px] max-[640px]:py-12 max-[640px]:pb-[42px]">
+      {/* <section className="border-y border-[#d8d8d8] px-0 py-[78px] pb-[66px] max-[640px]:py-12 max-[640px]:pb-[42px]">
         <div className={`${containerClass} flex items-center justify-between gap-8 max-[900px]:grid max-[900px]:justify-stretch`}>
           <SectionHeader>Section heading</SectionHeader>
           <div className="flex flex-wrap gap-7 max-[640px]:gap-4">
@@ -37,7 +37,7 @@ export default function Footer() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="px-0 py-[62px] pb-[58px] max-[640px]:py-[42px] max-[640px]:pb-[46px]">
         <div className={`${containerClass} grid grid-cols-[1.15fr_0.8fr_1fr] items-start gap-12 max-[900px]:grid-cols-1 max-[640px]:gap-[34px]`}>
