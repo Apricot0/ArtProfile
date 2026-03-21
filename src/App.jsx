@@ -1,28 +1,11 @@
 import "./styles.css";
-
-const illustrationItems = [
-  {
-    title: "Still Life Study",
-    description: "Oil and natural light composition.",
-    image:
-      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
-    alt: "Still life artwork with fruit and glass",
-  },
-  {
-    title: "Quiet Orange",
-    description: "Minimal form and shadow exploration.",
-    image:
-      "https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=900&q=80",
-    alt: "Minimal studio composition with orange",
-  },
-  {
-    title: "Soft Surface",
-    description: "Abstract textures with muted neutrals.",
-    image:
-      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80",
-    alt: "Textured abstract painting",
-  },
-];
+import Button from "./components/Button.jsx";
+import {
+  conceptArtItems,
+  featuredImage,
+  illustrationItems,
+  traditionalArtsImage,
+} from "./items/images/portfolioImages.js";
 
 const traditionalArtItems = [
   {
@@ -38,23 +21,6 @@ const traditionalArtItems = [
     title: "Oil painting",
     description:
       "Body text for whatever you'd like to add more to the main point. It provides details, explanations, and context.",
-  },
-];
-
-const conceptArtItems = [
-  {
-    title: "Character Design",
-    description: "Body text for whatever you'd like to add more to the subheading.",
-    image:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80",
-    alt: "Warm still life with bread, melon, peaches, and a glass of wine",
-  },
-  {
-    title: "Storyboard",
-    description: "Body text for whatever you'd like to expand on the main point.",
-    image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80",
-    alt: "Sunlit breakfast scene with croissants, grapes, and an open book",
   },
 ];
 
@@ -89,9 +55,9 @@ export default function App() {
                 <a href="#about">About</a>
               </li>
               <li>
-                <a className="contact-btn" href="#contact">
+                <Button href="#contact" className="contact-btn">
                   Contact
-                </a>
+                </Button>
               </li>
             </ul>
           </nav>
@@ -117,8 +83,8 @@ export default function App() {
 
             <img
               className="feature-image"
-              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1600&q=80"
-              alt="Large featured artwork"
+              src={featuredImage.src}
+              alt={featuredImage.alt}
             />
           </div>
         </section>
@@ -157,25 +123,19 @@ export default function App() {
                 </div>
 
                 <div className="traditional-actions">
-                  <a
-                    href="#contact"
-                    className="traditional-btn traditional-btn-primary"
-                  >
+                  <Button href="#contact">
                     Button
-                  </a>
-                  <a
-                    href="#portfolio"
-                    className="traditional-btn traditional-btn-secondary"
-                  >
+                  </Button>
+                  <Button href="#portfolio" tone="gray">
                     Secondary button
-                  </a>
+                  </Button>
                 </div>
               </div>
 
               <div className="traditional-arts-media">
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=80"
-                  alt="Still life scene with fruit, basket, and camera on an open magazine"
+                  src={traditionalArtsImage.src}
+                  alt={traditionalArtsImage.alt}
                 />
               </div>
             </div>
@@ -206,15 +166,12 @@ export default function App() {
           <div className="container footer-cta-row">
             <h2>Section heading</h2>
             <div className="footer-cta-actions">
-              <a
-                href="#portfolio"
-                className="traditional-btn traditional-btn-primary"
-              >
+              <Button href="#portfolio">
                 Button
-              </a>
-              <a href="#about" className="traditional-btn traditional-btn-secondary">
+              </Button>
+              <Button href="#about" tone="gray">
                 Secondary button
-              </a>
+              </Button>
             </div>
           </div>
         </section>

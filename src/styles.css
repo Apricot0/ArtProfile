@@ -1,10 +1,15 @@
 :root {
-  --bg: #efefef;
+  --bg: #dedccb;
   --text: #111111;
   --muted: #5a5a5a;
   --button: #000000;
   --button-text: #ffffff;
   --container: 1180px;
+  --section-title-size: clamp(2.8rem, 4.8vw, 4rem);
+  --section-title-line: 0.95;
+  --card-title-size: clamp(1.9rem, 2.4vw, 2.2rem);
+  --body-copy-size: clamp(1.28rem, 2vw, 1.6rem);
+  --image-radius: 16px;
 }
 
 * {
@@ -68,7 +73,9 @@ a {
   font-weight: 500;
 }
 
-.contact-btn {
+.contact-btn,
+.hero-btn,
+.traditional-btn {
   background: var(--button);
   color: var(--button-text);
   padding: 14px 24px;
@@ -82,7 +89,8 @@ a {
 }
 
 .contact-btn:hover,
-.hero-btn:hover {
+.hero-btn:hover,
+.traditional-btn:hover {
   transform: translateY(-1px);
   opacity: 0.92;
 }
@@ -116,23 +124,12 @@ a {
   margin-bottom: 30px;
 }
 
-.hero-btn {
-  display: inline-block;
-  background: var(--button);
-  color: var(--button-text);
-  padding: 18px 28px;
-  border-radius: 10px;
-  font-weight: 500;
-  font-size: 1.15rem;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
 .feature-image {
   width: 100%;
   height: 570px;
   object-fit: cover;
   object-position: center;
-  border-radius: 10px;
+  border-radius: var(--image-radius);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -140,11 +137,17 @@ a {
   padding: 24px 0 80px;
 }
 
-.section-title {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.05;
+.section-title,
+.traditional-arts-copy h2,
+.concept-art-title,
+.footer-cta h2 {
+  font-size: var(--section-title-size);
+  line-height: var(--section-title-line);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+}
+
+.section-title {
   margin-bottom: 34px;
 }
 
@@ -156,7 +159,7 @@ a {
 
 .gallery-card {
   background: #f7f7f7;
-  border-radius: 10px;
+  border-radius: var(--image-radius);
   overflow: hidden;
 }
 
@@ -168,12 +171,6 @@ a {
 
 .gallery-meta {
   padding: 14px 6px 2px;
-}
-
-.gallery-meta h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
 }
 
 .gallery-meta p {
@@ -197,10 +194,6 @@ a {
 }
 
 .traditional-arts-copy h2 {
-  font-size: clamp(2.8rem, 4.8vw, 4rem);
-  line-height: 0.95;
-  font-weight: 700;
-  letter-spacing: -0.04em;
   margin-bottom: 72px;
 }
 
@@ -210,41 +203,32 @@ a {
   margin-bottom: 60px;
 }
 
-.traditional-item h3 {
-  font-size: clamp(1.9rem, 2.5vw, 2.25rem);
-  line-height: 1.05;
+.traditional-item h3,
+.concept-card-copy h3 {
+  font-size: var(--card-title-size);
+  line-height: 1.08;
   font-weight: 500;
+}
+
+.traditional-item h3 {
   margin-bottom: 18px;
+}
+
+.traditional-item p,
+.concept-card-copy p {
+  font-size: var(--body-copy-size);
+  line-height: 1.45;
+  color: #8b8b8b;
 }
 
 .traditional-item p {
   max-width: 22ch;
-  font-size: clamp(1.3rem, 2.1vw, 1.65rem);
-  line-height: 1.45;
-  color: #8b8b8b;
 }
 
 .traditional-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
-}
-
-.traditional-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 74px;
-  padding: 18px 30px;
-  border-radius: 12px;
-  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
-  font-weight: 500;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.traditional-btn:hover {
-  transform: translateY(-1px);
-  opacity: 0.94;
 }
 
 .traditional-btn-primary {
@@ -261,7 +245,7 @@ a {
   width: 100%;
   height: 880px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: var(--image-radius);
 }
 
 .concept-art {
@@ -269,10 +253,6 @@ a {
 }
 
 .concept-art-title {
-  font-size: clamp(2.8rem, 4.9vw, 4.2rem);
-  line-height: 0.95;
-  font-weight: 700;
-  letter-spacing: -0.04em;
   margin-bottom: 58px;
 }
 
@@ -286,22 +266,16 @@ a {
   width: 100%;
   height: 430px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: var(--image-radius);
   margin-bottom: 28px;
 }
 
 .concept-card-copy h3 {
-  font-size: clamp(1.9rem, 2.4vw, 2.2rem);
-  line-height: 1.08;
-  font-weight: 500;
   margin-bottom: 14px;
 }
 
 .concept-card-copy p {
   max-width: 21ch;
-  font-size: clamp(1.28rem, 2vw, 1.6rem);
-  line-height: 1.45;
-  color: #8b8b8b;
 }
 
 .site-footer {
@@ -319,13 +293,6 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-}
-
-.footer-cta h2 {
-  font-size: clamp(3rem, 5vw, 4.6rem);
-  line-height: 0.95;
-  font-weight: 700;
-  letter-spacing: -0.04em;
 }
 
 .footer-cta-actions {
@@ -376,10 +343,16 @@ a {
   fill: currentColor;
 }
 
+.gallery-meta h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
 .footer-links-block h3,
 .footer-contact-block h3 {
   font-size: 1.05rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 30px;
 }
 
