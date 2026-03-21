@@ -61,8 +61,8 @@ function PortfolioMenu({ open, onOpenChange, className = "" }) {
       onMouseEnter={() => onOpenChange(true)}
       onMouseLeave={() => onOpenChange(false)}
     >
-      <NavLink
-        to="/illustration"
+      <Link
+        to="/#illustration"
         className={[
           "relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-transform duration-300 ease-out",
           open ? "lg:-translate-x-4" : "",
@@ -80,7 +80,7 @@ function PortfolioMenu({ open, onOpenChange, className = "" }) {
             .join(" ")}
         />
         <span className="relative z-10">Portfolio</span>
-      </NavLink>
+      </Link>
 
       <div
         className={[
@@ -131,7 +131,16 @@ export default function Header() {
 
               <div className="relative lg:hidden">
                 <div className="flex items-center gap-1">
-                  <NavItem to="/illustration">Portfolio</NavItem>
+                  <Link
+                    to="/#illustration"
+                    className="group relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-transform duration-300 ease-out"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-1 bottom-1 h-px origin-left scale-x-0 bg-black/65 transition-transform duration-300 ease-out group-hover:scale-x-100"
+                    />
+                    <span className="relative z-10">Portfolio</span>
+                  </Link>
                   <button
                     type="button"
                     className={[
