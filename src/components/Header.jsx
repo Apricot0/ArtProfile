@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Button from "./Button.jsx";
 import { containerClass } from "../styles/classNames.js";
 
-function NavItem({ href, children, className = "", underlineClassName = "" }) {
+function NavItem({ to, children, className = "", underlineClassName = "" }) {
   return (
-    <a
-      href={href}
+    <NavLink
+      to={to}
       className={[
         "group relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-transform duration-300 ease-out",
         className,
@@ -23,14 +24,14 @@ function NavItem({ href, children, className = "", underlineClassName = "" }) {
           .join(" ")}
       />
       <span className="relative z-10">{children}</span>
-    </a>
+    </NavLink>
   );
 }
 
-function ExpandedNavItem({ href, children, className = "" }) {
+function ExpandedNavItem({ to, children, className = "" }) {
   return (
-    <a
-      href={href}
+    <NavLink
+      to={to}
       className={[
         "group/subnav relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-all duration-200 ease-out active:scale-[0.98] active:bg-black/8",
         className,
@@ -43,15 +44,15 @@ function ExpandedNavItem({ href, children, className = "" }) {
         className="absolute inset-x-1 bottom-1 h-px origin-left scale-x-75 border-b border-dashed border-black/60 opacity-0 transition duration-300 ease-out group-hover/subnav:scale-x-100 group-hover/subnav:opacity-100"
       />
       <span className="relative z-10">{children}</span>
-    </a>
+    </NavLink>
   );
 }
 
 function PortfolioMenu({ open, onOpenChange, className = "" }) {
   const items = [
-    { href: "#illustration", label: "Illustration" },
-    { href: "#traditional-arts", label: "Traditional Arts" },
-    { href: "#concept-art", label: "Concept Art" },
+    { to: "/illustration", label: "Illustration" },
+    { to: "/traditional-arts", label: "Traditional Arts" },
+    { to: "/concept-art", label: "Concept Art" },
   ];
 
   return (
@@ -60,8 +61,8 @@ function PortfolioMenu({ open, onOpenChange, className = "" }) {
       onMouseEnter={() => onOpenChange(true)}
       onMouseLeave={() => onOpenChange(false)}
     >
-      <a
-        href="#illustration"
+      <NavLink
+        to="/illustration"
         className={[
           "relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-transform duration-300 ease-out",
           open ? "lg:-translate-x-4" : "",
@@ -73,13 +74,13 @@ function PortfolioMenu({ open, onOpenChange, className = "" }) {
           aria-hidden="true"
           className={[
             "absolute inset-x-1 bottom-1 h-px origin-left scale-x-0 bg-black/65 transition-transform duration-300 ease-out group-hover:scale-x-100",
-            open ? "lg:scale-x-0" : "",
+            open ? "lg:scale-x-0 lg:group-hover:scale-x-0" : "",
           ]
             .filter(Boolean)
             .join(" ")}
         />
         <span className="relative z-10">Portfolio</span>
-      </a>
+      </NavLink>
 
       <div
         className={[
@@ -91,27 +92,7 @@ function PortfolioMenu({ open, onOpenChange, className = "" }) {
       >
         <div className="lg:flex lg:items-center lg:gap-4 lg:whitespace-nowrap">
           {items.map((item) => (
-            <ExpandedNavItem key={item.href} href={item.href} className="px-1">
-              {item.label}
-            </ExpandedNavItem>
-          ))}
-        </div>
-      </div>
-
-      <div
-        className={[
-          "pointer-events-none absolute z-20 transition-all duration-300 ease-out lg:hidden",
-          "left-1/2 top-full mt-1 -translate-x-1/2 opacity-0 group-hover:pointer-events-auto group-hover:opacity-100",
-          open
-            ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "translate-y-1",
-        ]
-          .filter(Boolean)
-          .join(" ")}
-      >
-        <div className="grid rounded-2xl border border-black/8 bg-[#f3f0e5]/95 p-3 shadow-[0_18px_40px_rgba(0,0,0,0.12)] backdrop-blur-sm">
-          {items.map((item) => (
-            <ExpandedNavItem key={item.href} href={item.href} className="px-3">
+            <ExpandedNavItem key={item.to} to={item.to} className="px-1">
               {item.label}
             </ExpandedNavItem>
           ))}
@@ -129,14 +110,14 @@ export default function Header() {
     <header className="py-[34px] pb-[26px] max-[640px]:pt-5">
       <div className={containerClass}>
         <nav className="flex items-center justify-between gap-6 max-[900px]:flex-wrap max-[640px]:items-start">
-          <a href="#home" className="text-base font-medium tracking-[0.08em]">
+          <Link to="/" className="text-base font-medium tracking-[0.08em]">
             VERA XIAO
-          </a>
+          </Link>
 
           <ul className="flex list-none items-center gap-10 max-[900px]:gap-[22px] max-[640px]:w-full max-[640px]:flex-wrap max-[640px]:gap-y-[14px] max-[640px]:gap-x-[18px]">
             <li>
               <NavItem
-                href="#home"
+                to="/"
                 className={portfolioOpen ? "lg:-translate-x-4" : ""}
                 underlineClassName={portfolioOpen ? "lg:scale-x-0" : ""}
               >
@@ -150,7 +131,7 @@ export default function Header() {
 
               <div className="relative lg:hidden">
                 <div className="flex items-center gap-1">
-                  <NavItem href="#illustration">Portfolio</NavItem>
+                  <NavItem to="/illustration">Portfolio</NavItem>
                   <button
                     type="button"
                     className={[
@@ -199,13 +180,13 @@ export default function Header() {
                     .join(" ")}
                 >
                   <div className="grid gap-1">
-                    <ExpandedNavItem href="#illustration" className="w-full justify-start rounded-lg px-2 hover:bg-black/5">
+                    <ExpandedNavItem to="/illustration" className="w-full justify-start rounded-lg px-2 hover:bg-black/5">
                       Illustration
                     </ExpandedNavItem>
-                    <ExpandedNavItem href="#traditional-arts" className="w-full justify-start rounded-lg px-2 hover:bg-black/5">
+                    <ExpandedNavItem to="/traditional-arts" className="w-full justify-start rounded-lg px-2 hover:bg-black/5">
                       Traditional Arts
                     </ExpandedNavItem>
-                    <ExpandedNavItem href="#concept-art" className="w-full justify-start rounded-lg px-2 hover:bg-black/5">
+                    <ExpandedNavItem to="/concept-art" className="w-full justify-start rounded-lg px-2 hover:bg-black/5">
                       Concept Art
                     </ExpandedNavItem>
                   </div>
@@ -213,10 +194,10 @@ export default function Header() {
               </div>
             </li>
             <li>
-              <NavItem href="#about">About</NavItem>
+              <NavItem to="/about">About</NavItem>
             </li>
             <li>
-              <Button href="#contact">Contact</Button>
+              <Button to="/about">Contact</Button>
             </li>
           </ul>
         </nav>
