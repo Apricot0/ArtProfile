@@ -1,6 +1,10 @@
 import Button from "./Button.jsx";
 import SectionHeader from "./SectionHeader.jsx";
-import { containerClass, footerTextClass } from "../styles/classNames.js";
+import {
+  containerClass,
+  footerHeadingClass,
+  footerTextClass,
+} from "../styles/classNames.js";
 
 function SocialIcon({ label, children }) {
   return (
@@ -62,7 +66,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className={`mb-[30px] font-medium ${footerTextClass}`}>Quick Links</h3>
+            <h3 className={`mb-[30px] font-medium ${footerHeadingClass}`}>Quick Links</h3>
             <nav className="grid gap-6" aria-label="Footer">
               <a href="#home" className={footerTextClass}>
                 Home
@@ -77,7 +81,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className={`mb-[30px] font-medium ${footerTextClass}`}>Contact:</h3>
+            <h3 className={`mb-[30px] font-medium ${footerHeadingClass}`}>Contact:</h3>
             <div className="grid gap-6">
               <p className={footerTextClass}>Email: veraxiao030@gmail.com</p>
               <p className={footerTextClass}>Instagram: @VERA.0301212</p>

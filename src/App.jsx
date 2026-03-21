@@ -2,6 +2,7 @@ import "./styles.css";
 import Button from "./components/Button.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
+import ImageWrapper from "./components/ImageWrapper.jsx";
 import SectionHeader from "./components/SectionHeader.jsx";
 import {
   conceptArtItems,
@@ -54,10 +55,12 @@ export default function App() {
               <div />
             </div>
 
-            <img
-              className="h-[570px] w-full rounded-2xl object-cover object-center shadow-[0_2px_10px_rgba(0,0,0,0.05)] max-[900px]:h-[420px] max-[640px]:h-[300px]"
+            <ImageWrapper
               src={featuredImage.src}
               alt={featuredImage.alt}
+              className="h-[570px] w-full max-[900px]:h-[420px] max-[640px]:h-[300px]"
+              imgClassName="object-center"
+              shadow
             />
           </div>
         </section>
@@ -69,10 +72,10 @@ export default function App() {
             <div className="grid grid-cols-3 gap-7 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
               {illustrationItems.map((item) => (
                 <article key={item.title}>
-                  <img
+                  <ImageWrapper
                     src={item.image}
                     alt={item.alt}
-                    className="mb-7 aspect-[1.15/1] w-full rounded-2xl object-cover max-[640px]:mb-[18px]"
+                    className="mb-7 aspect-[1.15/1] w-full max-[640px]:mb-[18px]"
                   />
                   <div>
                     <h3 className={`${cardTitleClass} mb-[14px]`}>{item.title}</h3>
@@ -116,10 +119,10 @@ export default function App() {
               </div>
 
               <div>
-                <img
+                <ImageWrapper
                   src={traditionalArtsImage.src}
                   alt={traditionalArtsImage.alt}
-                  className="h-[750px] w-full rounded-2xl object-cover max-[900px]:h-[520px] max-[640px]:h-[360px]"
+                  className="h-[750px] w-full max-[900px]:h-[520px] max-[640px]:h-[360px]"
                 />
               </div>
             </div>
@@ -135,10 +138,10 @@ export default function App() {
             <div className="grid grid-cols-2 gap-[38px] max-[900px]:grid-cols-1 max-[900px]:gap-[34px]">
               {conceptArtItems.map((item) => (
                 <article key={item.title}>
-                  <img
+                  <ImageWrapper
                     src={item.image}
                     alt={item.alt}
-                    className="mb-7 h-[430px] w-full rounded-2xl object-cover max-[640px]:mb-[18px] max-[640px]:h-[280px]"
+                    className="mb-7 h-[430px] w-full max-[640px]:mb-[18px] max-[640px]:h-[280px]"
                   />
                   <div>
                     <h3 className={`${cardTitleClass} mb-[14px]`}>{item.title}</h3>

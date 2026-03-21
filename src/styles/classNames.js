@@ -7,4 +7,8 @@ export const cardTitleClass =
 export const bodyCopyClass =
   "text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.45] text-[#8b8b8b]";
 
-export const footerTextClass = bodyCopyClass;
+export const footerTextClass =
+  "text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.45] text-[#8b8b8b]";
+
+export const footerHeadingClass =
+  "text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.45] text-[#4f4f4f]";
