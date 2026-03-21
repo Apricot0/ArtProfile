@@ -1,11 +1,19 @@
 import "./styles.css";
 import Button from "./components/Button.jsx";
+import Footer from "./components/Footer.jsx";
+import Header from "./components/Header.jsx";
+import SectionHeader from "./components/SectionHeader.jsx";
 import {
   conceptArtItems,
   featuredImage,
   illustrationItems,
   traditionalArtsImage,
 } from "./items/images/portfolioImages.js";
+import {
+  bodyCopyClass,
+  cardTitleClass,
+  containerClass,
+} from "./styles/classNames.js";
 
 const traditionalArtItems = [
   {
@@ -24,82 +32,53 @@ const traditionalArtItems = [
   },
 ];
 
-function SocialIcon({ label, children }) {
-  return (
-    <a href="#" aria-label={label}>
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        {children}
-      </svg>
-    </a>
-  );
-}
-
 export default function App() {
   return (
     <>
-      <header className="site-header">
-        <div className="container">
-          <nav className="nav">
-            <a href="#home" className="brand">
-              VERA XIAO
-            </a>
-
-            <ul className="nav-links">
-              <li>
-                <a href="#home">Home</a>
-              </li>
-              <li>
-                <a href="#portfolio">Portfolio</a>
-              </li>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <Button href="#contact" className="contact-btn">
-                  Contact
-                </Button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main>
-        <section className="hero" id="home">
-          <div className="container">
-            <div className="hero-grid">
-              <div className="hero-copy">
-                <h1>Creating Art That Speaks to the Soul</h1>
-                <p>
+        <section id="home" className="px-0 py-[42px] pb-[90px] max-[640px]:pt-6 max-[640px]:pb-14">
+          <div className={containerClass}>
+            <div className="mb-11 grid grid-cols-[minmax(320px,560px)_1fr] items-start gap-8 max-[900px]:grid-cols-1">
+              <div>
+                <h1 className="font-display mb-[26px] max-w-[20ch] text-[clamp(3.25rem,5vw,5.2rem)] leading-[0.92] font-medium tracking-[-0.02em] max-[640px]:max-w-none">
+                  Creating Art That Speaks to the Soul
+                </h1>
+                <p className={`mb-[30px] max-w-[36rem] ${bodyCopyClass} text-[#5a5a5a]`}>
                   Contemporary artist exploring the boundaries of color, texture,
                   and emotion through various mediums.
                 </p>
-                <a href="#portfolio" className="hero-btn">
-                  View Portfolio
-                </a>
+                <Button href="#portfolio">View Portfolio</Button>
               </div>
               <div />
             </div>
 
             <img
-              className="feature-image"
+              className="h-[570px] w-full rounded-2xl object-cover object-center shadow-[0_2px_10px_rgba(0,0,0,0.05)] max-[900px]:h-[420px] max-[640px]:h-[300px]"
               src={featuredImage.src}
               alt={featuredImage.alt}
             />
           </div>
         </section>
 
-        <section className="section" id="portfolio">
-          <div className="container">
-            <h2 className="section-title">Illustration</h2>
+        <section id="portfolio" className="px-0 py-6 pb-20">
+          <div className={containerClass}>
+            <SectionHeader className="mb-[34px]">Illustration</SectionHeader>
 
-            <div className="gallery">
+            <div className="grid grid-cols-3 gap-7 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
               {illustrationItems.map((item) => (
-                <article className="gallery-card" key={item.title}>
-                  <img src={item.image} alt={item.alt} />
-                  <div className="gallery-meta">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
+                <article key={item.title}>
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="mb-7 aspect-[1.15/1] w-full rounded-2xl object-cover max-[640px]:mb-[18px]"
+                  />
+                  <div>
+                    <h3 className={`${cardTitleClass} mb-[14px]`}>{item.title}</h3>
+                    <p className={`${bodyCopyClass} max-w-[21ch] max-[900px]:max-w-none`}>
+                      {item.description}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -107,52 +86,65 @@ export default function App() {
           </div>
         </section>
 
-        <section className="traditional-arts" id="about">
-          <div className="container">
-            <div className="traditional-arts-grid">
-              <div className="traditional-arts-copy">
-                <h2>Traditional Arts</h2>
+        <section id="about" className="px-0 py-6 pb-20 max-[640px]:pt-3 max-[640px]:pb-12">
+          <div className={containerClass}>
+            <div className="grid items-start gap-10 lg:grid-cols-2 max-[900px]:gap-8">
+              <div className="flex h-full flex-col pt-[10px]">
+                <SectionHeader className="mb-[56px] max-[900px]:mb-10">
+                  Traditional Arts
+                </SectionHeader>
 
-                <div className="traditional-arts-list">
+                <div className="grid flex-1 gap-[28px] max-[900px]:mb-9 max-[900px]:gap-[24px]">
                   {traditionalArtItems.map((item) => (
-                    <article className="traditional-item" key={item.title}>
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
+                    <article key={item.title}>
+                      <h5 className={`${cardTitleClass} mb-[10px]`}>{item.title}</h5>
+                      <p className={`${bodyCopyClass} max-w-[20ch] max-[900px]:max-w-none`}>
+                        {item.description}
+                      </p>
                     </article>
                   ))}
                 </div>
 
-                <div className="traditional-actions">
-                  <Button href="#contact">
+                <div className="mt-10 flex flex-wrap gap-[28px] max-[900px]:mt-9 max-[640px]:flex-col">
+                  <Button href="#contact" className="max-[640px]:w-full">
                     Button
                   </Button>
-                  <Button href="#portfolio" tone="gray">
+                  <Button href="#portfolio" tone="gray" className="max-[640px]:w-full">
                     Secondary button
                   </Button>
                 </div>
               </div>
 
-              <div className="traditional-arts-media">
+              <div>
                 <img
                   src={traditionalArtsImage.src}
                   alt={traditionalArtsImage.alt}
+                  className="h-[750px] w-full rounded-2xl object-cover max-[900px]:h-[520px] max-[640px]:h-[360px]"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="concept-art">
-          <div className="container">
-            <h2 className="concept-art-title">Concept Art</h2>
+        <section className="px-0 pt-3 pb-[100px] max-[640px]:pb-16">
+          <div className={containerClass}>
+            <SectionHeader className="mb-[58px] max-[640px]:mb-[34px]">
+              Concept Art
+            </SectionHeader>
 
-            <div className="concept-art-grid">
+            <div className="grid grid-cols-2 gap-[38px] max-[900px]:grid-cols-1 max-[900px]:gap-[34px]">
               {conceptArtItems.map((item) => (
-                <article className="concept-card" key={item.title}>
-                  <img src={item.image} alt={item.alt} />
-                  <div className="concept-card-copy">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
+                <article key={item.title}>
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="mb-7 h-[430px] w-full rounded-2xl object-cover max-[640px]:mb-[18px] max-[640px]:h-[280px]"
+                  />
+                  <div>
+                    <h3 className={`${cardTitleClass} mb-[14px]`}>{item.title}</h3>
+                    <p className={`${bodyCopyClass} max-w-[21ch] max-[900px]:max-w-none`}>
+                      {item.description}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -161,64 +153,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="site-footer" id="contact">
-        <section className="footer-cta">
-          <div className="container footer-cta-row">
-            <h2>Section heading</h2>
-            <div className="footer-cta-actions">
-              <Button href="#portfolio">
-                Button
-              </Button>
-              <Button href="#about" tone="gray">
-                Secondary button
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        <section className="footer-main">
-          <div className="container footer-main-grid">
-            <div className="footer-brand-block">
-              <a href="#home" className="footer-brand">
-                VERA XIAO
-              </a>
-
-              <div className="footer-socials" aria-label="Social links">
-                <SocialIcon label="Facebook">
-                  <path d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.5 1.6-1.5h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.3v2.4H8.4v3.2h2.7V22h2.4Z" />
-                </SocialIcon>
-                <SocialIcon label="LinkedIn">
-                  <path d="M6.3 8.8A1.9 1.9 0 1 1 6.3 5a1.9 1.9 0 0 1 0 3.8ZM4.9 9.9h2.8V19H4.9V9.9Zm4.6 0H12v1.2h.1c.3-.6 1.2-1.5 2.6-1.5 2.8 0 3.3 1.8 3.3 4.2V19h-2.8v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19H9.5V9.9Z" />
-                </SocialIcon>
-                <SocialIcon label="YouTube">
-                  <path d="M21.3 7.2a2.9 2.9 0 0 0-2-2C17.6 4.7 12 4.7 12 4.7s-5.6 0-7.3.5a2.9 2.9 0 0 0-2 2A30 30 0 0 0 2.2 12a30 30 0 0 0 .5 4.8 2.9 2.9 0 0 0 2 2c1.7.5 7.3.5 7.3.5s5.6 0 7.3-.5a2.9 2.9 0 0 0 2-2 30 30 0 0 0 .5-4.8 30 30 0 0 0-.5-4.8ZM10.2 15.1V8.9l5.2 3.1-5.2 3.1Z" />
-                </SocialIcon>
-                <SocialIcon label="Instagram">
-                  <path d="M12 7.1A4.9 4.9 0 1 0 12 17a4.9 4.9 0 0 0 0-9.9Zm0 8.1A3.2 3.2 0 1 1 12 8.8a3.2 3.2 0 0 1 0 6.4Zm6.2-8.3a1.1 1.1 0 1 1-2.1 0 1.1 1.1 0 0 1 2.1 0Zm3 1.1c-.1-1-.3-1.8-.8-2.6a5.3 5.3 0 0 0-1.9-1.9c-.7-.4-1.6-.7-2.6-.8C15 2.6 14.7 2.6 12 2.6s-3 0-3.9.1c-1 .1-1.8.3-2.6.8a5.3 5.3 0 0 0-1.9 1.9c-.4.7-.7 1.6-.8 2.6C2.6 9 2.6 9.3 2.6 12s0 3 .1 3.9c.1 1 .3 1.8.8 2.6a5.3 5.3 0 0 0 1.9 1.9c.7.4 1.6.7 2.6.8.9.1 1.2.1 3.9.1s3 0 3.9-.1c1-.1 1.8-.3 2.6-.8a5.3 5.3 0 0 0 1.9-1.9c.4-.7.7-1.6.8-2.6.1-.9.1-1.2.1-3.9s0-3-.1-3.9Zm-1.8 7.7c-.1.8-.2 1.2-.4 1.6-.2.5-.5.8-.9 1.2-.4.4-.7.7-1.2.9-.4.2-.8.3-1.6.4-.8 0-1 .1-3.3.1s-2.5 0-3.3-.1c-.8-.1-1.2-.2-1.6-.4-.5-.2-.8-.5-1.2-.9-.4-.4-.7-.7-.9-1.2-.2-.4-.3-.8-.4-1.6 0-.8-.1-1-.1-3.3s0-2.5.1-3.3c.1-.8.2-1.2.4-1.6.2-.5.5-.8.9-1.2.4-.4.7-.7 1.2-.9.4-.2.8-.3 1.6-.4.8 0 1-.1 3.3-.1s2.5 0 3.3.1c.8.1 1.2.2 1.6.4.5.2.8.5 1.2.9.4.4.7.7.9 1.2.2.4.3.8.4 1.6 0 .8.1 1 .1 3.3s0 2.5-.1 3.3Z" />
-                </SocialIcon>
-              </div>
-            </div>
-
-            <div className="footer-links-block">
-              <h3>Quick Links</h3>
-              <nav className="footer-links" aria-label="Footer">
-                <a href="#home">Home</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#about">About</a>
-              </nav>
-            </div>
-
-            <div className="footer-contact-block">
-              <h3>Contact:</h3>
-              <div className="footer-contact-list">
-                <p>Email: veraxiao030@gmail.com</p>
-                <p>Instagram: @VERA.0301212</p>
-                <p>Page</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </footer>
+      <Footer />
     </>
   );
 }
