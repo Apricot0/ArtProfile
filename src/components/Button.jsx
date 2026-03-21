@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Button({
   href = "#",
+  to,
   children,
   tone = "standard",
   className = "",
@@ -27,14 +29,15 @@ export default function Button({
     setHoverState({ active: true, x, y });
   }
 
-  return (
-    <a
-      href={href}
-      className={classes}
-      onMouseEnter={handlePointerMove}
-      onMouseMove={handlePointerMove}
-      onMouseLeave={() => setHoverState((current) => ({ ...current, active: false }))}
-    >
+  const sharedProps = {
+    className: classes,
+    onMouseEnter: handlePointerMove,
+    onMouseMove: handlePointerMove,
+    onMouseLeave: () => setHoverState((current) => ({ ...current, active: false })),
+  };
+
+  const content = (
+    <>
       <span
         aria-hidden="true"
         className="absolute inset-0 transition-opacity duration-500 ease-out"
@@ -51,6 +54,20 @@ export default function Button({
         }}
       />
       <span className="relative z-10">{children}</span>
+    </>
+  );
+
+  if (to) {
+    return (
+      <Link to={to} {...sharedProps}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={href} {...sharedProps}>
+      {content}
     </a>
   );
 }
