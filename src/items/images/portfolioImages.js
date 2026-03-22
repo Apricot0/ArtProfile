@@ -20,7 +20,7 @@ export const illustrationItems = [
     title: "Quiet Orange",
     description: "Minimal form and shadow exploration.",
     image:
-      "https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=900&q=80",
+      "assets/images/demoimage.jpg",
     alt: "Minimal studio composition with orange",
   },
   {
