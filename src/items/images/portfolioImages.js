@@ -1,3 +1,5 @@
+import demoImage from "../../../assets/images/demoimage.jpg";
+
 export const featuredImage = {
   src: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1600&q=80",
   alt: "Large featured artwork",
@@ -19,8 +21,7 @@ export const illustrationItems = [
   {
     title: "Quiet Orange",
     description: "Minimal form and shadow exploration.",
-    image:
-      "assets/images/demoimage.jpg",
+    image: demoImage,
     alt: "Minimal studio composition with orange",
   },
   {
