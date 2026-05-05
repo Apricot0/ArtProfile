@@ -41,8 +41,7 @@ export default function HomePage() {
                 Creating Art That Speaks to the Soul
               </h1>
               <p className={`mb-[30px] max-w-[42rem] ${bodyCopyClass} text-[#5a5a5a]`}>
-                Contemporary artist exploring the boundaries of color, texture,
-                and emotion through various mediums.
+                Contemporary illustration artists explore the boundaries between color and emotion through various mediums.
               </p>
               <Button to="/illustration">View Portfolio</Button>
             </div>
