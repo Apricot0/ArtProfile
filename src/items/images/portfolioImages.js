@@ -1,51 +1,58 @@
 import demoImage from "../../../assets/images/demoimage.jpg";
+import secondImage from "../../../assets/images/second.jpg";
+import oldmanImage from "../../../assets/images/oldman.jpg";
+import peonyImage from "../../../assets/images/peony.png";
+import NewYorkImage from "../../../assets/images/NewYork.jpg";
+import OathImage from "../../../assets/images/Oath.png";
+import TheLostTombImage from "../../../assets/images/TheLostTomb.png";
+import EUCATASTROPHEImage from "../../../assets/images/EUCATASTROPHE.png";
+import EggImage from "../../../assets/images/Egg.jpg";
 
 export const featuredImage = {
-  src: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1600&q=80",
-  alt: "Large featured artwork",
+  src: OathImage,
+  alt: "Oath to Burn the Chains",
 };
 
 export const traditionalArtsImage = {
-  src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=80",
+  src: oldmanImage,
   alt: "Still life scene with fruit, basket, and camera on an open magazine",
 };
 
 export const illustrationItems = [
   {
-    title: "Still Life Study",
-    description: "Oil and natural light composition.",
+    title: "Immerse in the Eternal Spring",
+    description: "Cultural Theme Poster",
     image:
-      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
-    alt: "Still life artwork with fruit and glass",
+    peonyImage,
+    alt: "This promotional poster is designed for the Peony Flower Show in Luoyang, China. Drawing inspiration from the peony itself, it incorporates the flowing lines, ornate embellishments, and natural harmony characteristic of the Art Nouveau style of Alphonse Mucha, reinterpreting the splendor and vitality of Eastern flora.",
   },
   {
-    title: "Quiet Orange",
-    description: "Minimal form and shadow exploration.",
-    image: demoImage,
-    alt: "Minimal studio composition with orange",
+    title: "THE BIG APPLE",
+    description: "Window Display Design",
+    image: NewYorkImage,
+    alt: "An art project that distills the spirit, ecology, and landmarks of New York into street-level storefront windows.",
   },
   {
-    title: "Soft Surface",
-    description: "Abstract textures with muted neutrals.",
-    image:
-      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80",
-    alt: "Textured abstract painting",
+    title: "The Lost Tomb: The Seven-Star Lu Palace",
+    description: "YA Book Cover",
+    image:TheLostTombImage,
+    alt: "THE FIRST TOMB. A SECRET THAT BEGINS WITH A CURSE.",
   },
 ];
 
 export const conceptArtItems = [
   {
-    title: "Character Design",
-    description: "Body text for whatever you'd like to add more to the subheading.",
+    title: "Providence End",
+    description: "Character Design",
     image:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80",
-    alt: "Warm still life with bread, melon, peaches, and a glass of wine",
+      EUCATASTROPHEImage,
+    alt: "You will step into a continent that has been torn apart by multiple forces.",
   },
   {
-    title: "Storyboard",
-    description: "Body text for whatever you'd like to expand on the main point.",
+    title: "The Life of Runny Egg",
+    description: "Character Design",
     image:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80",
-    alt: "Sunlit breakfast scene with croissants, grapes, and an open book",
+      EggImage,
+    alt: "A good baby who selflessly devotes itself. The runny egg among runny eggs—runny eggs are the best in the world.",
   },
 ];
