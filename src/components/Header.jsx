@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Button from "./Button.jsx";
 import { containerClass } from "../styles/classNames.js";
@@ -8,7 +8,7 @@ function NavItem({ to, children, className = "", underlineClassName = "" }) {
     <NavLink
       to={to}
       className={[
-        "group relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-transform duration-300 ease-out",
+        "group relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-all duration-300 ease-out",
         className,
       ]
         .filter(Boolean)
@@ -48,7 +48,7 @@ function ExpandedNavItem({ to, children, className = "" }) {
   );
 }
 
-function PortfolioMenu({ open, onOpenChange, className = "" }) {
+function PortfolioMenu({ open, onOpenChange, className = "", isScrolled = false }) {
   const items = [
     { to: "/illustration", label: "Illustration" },
     { to: "/traditional-arts", label: "Traditional Arts" },
@@ -64,8 +64,9 @@ function PortfolioMenu({ open, onOpenChange, className = "" }) {
       <Link
         to="/#illustration"
         className={[
-          "relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-transform duration-300 ease-out",
+          "relative inline-flex items-center justify-center px-1 py-2 font-medium transition-all duration-300 ease-out",
           open ? "lg:-translate-x-4" : "",
+          isScrolled ? "text-sm" : "text-[0.98rem]",
         ]
           .filter(Boolean)
           .join(" ")}
@@ -105,12 +106,37 @@ function PortfolioMenu({ open, onOpenChange, className = "" }) {
 export default function Header() {
   const [portfolioOpen, setPortfolioOpen] = useState(false);
   const [mobilePortfolioOpen, setMobilePortfolioOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="py-[34px] pb-[26px] max-[640px]:pt-5">
+    <header
+      className={`
+        fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out
+        ${isScrolled 
+          ? 'py-2 bg-white/95 backdrop-blur-md shadow-lg' 
+          : 'py-[34px] pb-[26px] bg-transparent shadow-none'}
+        max-[640px]:${isScrolled ? 'py-2' : 'pt-5'}
+      `}
+    >
       <div className={containerClass}>
         <nav className="flex items-center justify-between gap-6 max-[900px]:flex-wrap max-[640px]:items-start">
-          <Link to="/" className="text-base font-medium tracking-[0.08em]">
+          <Link 
+            to="/" 
+            className={`
+              font-medium tracking-[0.08em] transition-all duration-500 ease-out
+              ${isScrolled 
+                ? 'text-sm scale-90' 
+                : 'text-base scale-100'}
+            `}
+          >
             VERA XIAO
           </Link>
 
@@ -118,7 +144,11 @@ export default function Header() {
             <li>
               <NavItem
                 to="/"
-                className={portfolioOpen ? "lg:-translate-x-4" : ""}
+                className={`
+                  transition-all duration-500 ease-out
+                  ${portfolioOpen ? "lg:-translate-x-4" : ""}
+                  ${isScrolled ? 'text-sm' : 'text-[0.98rem]'}
+                `}
                 underlineClassName={portfolioOpen ? "lg:scale-x-0" : ""}
               >
                 Home
@@ -126,14 +156,21 @@ export default function Header() {
             </li>
             <li>
               <div className="hidden lg:block">
-                <PortfolioMenu open={portfolioOpen} onOpenChange={setPortfolioOpen} />
+                <PortfolioMenu 
+                  open={portfolioOpen} 
+                  onOpenChange={setPortfolioOpen}
+                  isScrolled={isScrolled}
+                />
               </div>
 
               <div className="relative lg:hidden">
                 <div className="flex items-center gap-1">
                   <Link
                     to="/#illustration"
-                    className="group relative inline-flex items-center justify-center px-1 py-2 text-[0.98rem] font-medium transition-transform duration-300 ease-out"
+                    className={`
+                      group relative inline-flex items-center justify-center px-1 py-2 font-medium transition-all duration-500 ease-out
+                      ${isScrolled ? 'text-sm' : 'text-[0.98rem]'}
+                    `}
                   >
                     <span
                       aria-hidden="true"
@@ -143,12 +180,11 @@ export default function Header() {
                   </Link>
                   <button
                     type="button"
-                    className={[
-                      "inline-flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 active:scale-95",
-                      mobilePortfolioOpen ? "bg-black/10 text-black" : "hover:bg-black/5 active:bg-black/10",
-                    ]
-                      .filter(Boolean)
-                      .join(" ")}
+                    className={`
+                      inline-flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 active:scale-95
+                      ${mobilePortfolioOpen ? "bg-black/10 text-black" : "hover:bg-black/5 active:bg-black/10"}
+                      ${isScrolled ? 'scale-90' : 'scale-100'}
+                    `}
                     onClick={() => setMobilePortfolioOpen((current) => !current)}
                     aria-expanded={mobilePortfolioOpen}
                     aria-controls="mobile-portfolio-menu"
@@ -203,10 +239,20 @@ export default function Header() {
               </div>
             </li>
             <li>
-              <NavItem to="/about">About</NavItem>
+              <NavItem 
+                to="/about"
+                className={`transition-all duration-500 ease-out ${isScrolled ? 'text-sm' : 'text-[0.98rem]'}`}
+              >
+                About
+              </NavItem>
             </li>
             <li>
-              <Button to="/about">Contact</Button>
+              <Button 
+                to="/about"
+                className={`transition-all duration-500 ease-out ${isScrolled ? 'scale-90' : 'scale-100'}`}
+              >
+                Contact
+              </Button>
             </li>
           </ul>
         </nav>

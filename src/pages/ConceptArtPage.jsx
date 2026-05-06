@@ -7,66 +7,83 @@ import {
   containerClass,
 } from "../styles/classNames.js";
 
+import EUCATASTROPHE_2Image from "../../assets/images/EUCATASTROPHE_2.png";
+
 const featuredProduct = {
   title: "Concept Art",
-  subtitle: "Subheading",
-  price: "$10.99",
-  description:
-    "Body text for describing what this product is and why this product is simply a must-buy.",
+  subtitle: "Character Design",
+  price: "Providence End",
+  description: `All that is under this sky is fashioned and woven by Heaven's Will.
+
+Birth and demise, cycle and collapse, the rise and fall of all things—all are but cold, turning gears in the machinery of a supreme will.
+
+Yet when the very rules that uphold the world begin rotting from its roots, heaven and earth break free from prescribed logic and descend into chaos and collapse.`,
   details: "Text box for additional details or fine print",
   image:
-    "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1600&q=80",
-  alt: "Mushroom composition against bark and pale background",
+    EUCATASTROPHE_2Image,
+  alt: "Main characters",
 };
+
+import jianghuiImage from "../../assets/images/jianghui.png";
+import chongqingImage from "../../assets/images/chongqing.png";
+import mizhuguangImage from "../../assets/images/mizhuguang.png";
+import jiebobiImage from "../../assets/images/jiebobi.png";
+import suiyinImage from "../../assets/images/suiyin.png";
+import OathImage from "../../assets/images/Oath.png";
 
 const relatedProducts = [
   {
-    title: "Product",
-    description: "Description of first product",
-    price: "$10.99",
+    title: "HUI JIANG",
+    description: "A wandering knight-errant",
+    price: "",
     image:
-      "https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=1200&q=80",
-    alt: "Two pears on a bright surface",
+      jianghuiImage,
+    alt: "A battlefield where various forces contend for control of the cosmic order.",
+     objectPosition: "object-left",
   },
   {
-    title: "Product",
-    description: "Description of second product",
-    price: "$10.99",
+    title: "Chongqing",
+    description: "An Awakened Priestess",
+    price: "",
     image:
-      "https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&w=1200&q=80",
-    alt: "Radishes scattered on a white surface",
+      chongqingImage,
+    alt: "A devout guardian becomes the most resolute judge.",
+    objectPosition: "object-left",
   },
   {
-    title: "Product",
-    description: "Description of third product",
-    price: "$10.99",
+    title: "Zhuguang Mi",
+    description: "A warrior of Vengeance",
+    price: "",
     image:
-      "https://images.unsplash.com/photo-1563114773-84221bd62daa?auto=format&fit=crop&w=1200&q=80",
-    alt: "Watermelon slices arranged in a graphic composition",
+      mizhuguangImage,
+    alt: "A princess once robbed of her free will, who vows to wash away the shame of her manipulation with the blood of her enemies.",
+      objectPosition: "object-left",
   },
   {
-    title: "Product",
-    description: "Description of fourth product",
-    price: "$10.99",
+    title: "Bobi Jie",
+    description: "A creation neither human nor beast",
+    price: "",
     image:
-      "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1200&q=80",
-    alt: "Mushrooms with soft shadows on a tabletop",
+      jiebobiImage,
+    alt: "I am the feral god. I am its cage.",
+      objectPosition: "object-left",
   },
   {
-    title: "Product",
-    description: "Description of fifth product",
-    price: "$10.99",
+    title: "Suiyin",
+    description: "A forgotten paragon of antiquity",
+    price: "",
     image:
-      "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1200&q=80",
-    alt: "Bread and vegetables arranged as a vertical still life",
+      suiyinImage,
+    alt: "A consciousness condemned, suppressed, instrumentalized, and ultimately devoured for ideals that defied orthodoxy.",
+      objectPosition: "object-left",
   },
   {
-    title: "Product",
-    description: "Description of sixth product",
-    price: "$10.99",
+    title: "Oath to Burn the Chains",
+    description: "Illustration",
+    price: "",
     image:
-      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
-    alt: "Cherries casting warm shadows on a pale background",
+      OathImage,
+    alt: "Between the legends of deities and the villagers' madness, they must uncover a truth steeped in blood—or become the next sacrifice.",
   },
 ];
 
@@ -95,17 +112,10 @@ export default function ConceptArtPage() {
               {featuredProduct.price}
             </p>
 
-            <p className={`mb-10 max-w-[24ch] ${bodyCopyClass} text-[#7f7f7f] max-[900px]:max-w-none`}>
-              {featuredProduct.description}
-            </p>
+            <p className={`mb-10 max-w-[24ch] ${bodyCopyClass} text-[#7f7f7f] max-[900px]:max-w-none whitespace-pre-line`}>
+  {featuredProduct.description}
+</p>
 
-            <Button to="/about" className="w-full">
-              Add to cart
-            </Button>
-
-            <p className={`mt-8 ${bodyCopyClass} text-[#7f7f7f]`}>
-              {featuredProduct.details}
-            </p>
           </div>
         </div>
       </section>
@@ -113,7 +123,7 @@ export default function ConceptArtPage() {
       <section className="px-0 pt-22 max-[900px]:pt-18 max-[640px]:pt-14">
         <div className={containerClass}>
           <SectionHeader className="mb-12 max-[640px]:mb-8">
-            Related products
+            Character Concept
           </SectionHeader>
 
           <div className="grid grid-cols-3 gap-x-9 gap-y-10 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
@@ -123,7 +133,7 @@ export default function ConceptArtPage() {
                   src={item.image}
                   alt={item.alt}
                   className="mb-6 aspect-[1.15/1] w-full max-[640px]:mb-4"
-                  imgClassName="rounded-[16px] object-cover"
+                  imgClassName={`rounded-[16px] object-cover ${item.objectPosition || ''}`}
                 />
                 <div className="max-w-[26rem]">
                   <h3 className={`${cardTitleClass} mb-2`}>{item.title}</h3>
