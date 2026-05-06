@@ -12,6 +12,7 @@ export default function App() {
   return (
     <>
       <Header />
+      <div className="pt-[120px] max-[640px]:pt-[100px]"></div>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/illustration" element={<IllustrationPage />} />

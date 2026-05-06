@@ -1,16 +1,17 @@
 import demoImage from "../../../assets/images/demoimage.jpg";
 import secondImage from "../../../assets/images/second.jpg";
+import tigerImage from "../../../assets/images/tiger.JPG";
 import oldmanImage from "../../../assets/images/oldman.jpg";
 import peonyImage from "../../../assets/images/peony.png";
 import NewYorkImage from "../../../assets/images/NewYork.jpg";
-import OathImage from "../../../assets/images/Oath.png";
+import GOtoWORKmage from "../../../assets/images/GOtoWORK.png";
 import TheLostTombImage from "../../../assets/images/TheLostTomb.png";
 import EUCATASTROPHEImage from "../../../assets/images/EUCATASTROPHE.png";
 import EggImage from "../../../assets/images/Egg.jpg";
 
 export const featuredImage = {
-  src: OathImage,
-  alt: "Oath to Burn the Chains",
+  src: tigerImage,
+  alt: "Packaging Illustration: The zodiac animals of China.",
 };
 
 export const traditionalArtsImage = {
@@ -49,10 +50,10 @@ export const conceptArtItems = [
     alt: "You will step into a continent that has been torn apart by multiple forces.",
   },
   {
-    title: "The Life of Runny Egg",
-    description: "Character Design",
+    title: "GO TO WORK",
+    description: "Indie Game",
     image:
-      EggImage,
-    alt: "A good baby who selflessly devotes itself. The runny egg among runny eggs—runny eggs are the best in the world.",
+      GOtoWORKImage,
+    alt: "Corporate Uncanny · Rules of Oddity · Estranged Daily Life · Narrative Branches",
   },
 ];

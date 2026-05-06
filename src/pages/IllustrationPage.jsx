@@ -6,39 +6,42 @@ import {
   containerClass,
 } from "../styles/classNames.js";
 
+import DotRImage from "../../assets/images/DotR.JPG";
+
 const heroImage = {
-  src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1600&q=80",
-  alt: "Still life illustration with fruit, paper, and a crystal glass",
+  src: DotRImage,
+  alt: "Book Cover: A VISUAL INTERPRETATION OF DREAM OF THE RED CHAMBER",
 };
 
 const articleParagraphs = [
-  "Body text for your whole article or post. We'll put in some lorem ipsum to show how a filled-out page might look:",
-  "Excepteur efficient emerging, minim veniam anim aute carefully curated conversation exquisite perfect nostrud nisi intricate content. Qui international first-class nulla ut. Punctual adipisicing, essential lovely queen tempor eiusmod irure. Exclusive izakaya charming Scandinavian impeccable aute quality of life soft power pariatur Melbourne occaecat discerning. Qui wardrobe aliquip, et Porter destination Toto remarkable officia Helsinki excepteur Basset hound. Zurich sleepy perfect consectetur.",
-  "Exquisite sophisticated iconic cutting-edge laborum deserunt Addis Ababa esse bureaux cupidatat. Id mollit sunt officia adipisicing. Perfectly crafted emerging laboris posuere commodo, bespoke aliqua artisan. Thoughtful tempor city-guide minim anim, curated typography and tactile imagery est adipisicing. Gentle rhythm in layout, reflective pacing, and warm natural tones help the work feel collected instead of crowded.",
-  "Aute quiet luxury pariatur incididunt, narrative composition cillum non. Through illustration, the goal is to create scenes that feel intimate and cinematic at once, blending softness, material texture, and intentional negative space into a page that invites people to slow down and stay with the work.",
+ 
 ];
+
+import hlm1Image from "../../assets/images/hlm1.jpeg";
+import hlm2Image from "../../assets/images/hlm2.jpeg";
+import hlm3Image from "../../assets/images/hlm3.jpeg";
 
 const relatedArticles = [
   {
-    title: "Seasonal Study",
-    author: "Vera Xiao",
+    title: "Riverbank Guardian",
+    author: "DREAM OF THE RED CHAMBER",
     image:
-      "https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&w=1200&q=80",
-    alt: "Radishes arranged on a pale surface",
+      hlm1Image,
+    alt: "A young attendant of the gods would come to the riverside each day to water the plant, talk to it, and share all his joys and sorrows.",
   },
   {
-    title: "Morning Cherries",
-    author: "Vera Xiao",
+    title: "Shelter in Storm",
+    author: "DREAM OF THE RED CHAMBER",
     image:
-      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
-    alt: "Cherries casting soft shadows on a light background",
+      hlm2Image,
+    alt: "When storms approached, he would stay by the water, guarding her until the wind and rain had passed.",
   },
   {
-    title: "Quiet Forms",
-    author: "Vera Xiao",
+    title: "Plant Maiden Awakens",
+    author: "DREAM OF THE RED CHAMBER",
     image:
-      "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1200&q=80",
-    alt: "Mushrooms scattered across a bright tabletop",
+      hlm3Image,
+    alt: "After many years, the plant took the form of a beautiful maiden.",
   },
 ];
 
@@ -53,8 +56,7 @@ export default function IllustrationPage() {
             </SectionHeader>
 
             <p className="max-w-[880px] text-[clamp(0.45rem,2vw,1.2rem)] leading-[1.38] font-normal text-black/70 max-[640px]:max-w-none max-[640px]:text-[1.28rem]">
-              Subheading that sets up context, shares more info about the
-              author, or generally gets people psyched to keep reading.
+              It covers commercial illustrations, publications and picture books, advertisements, artistic decorations, cartoon mascots and film posters, etc.
             </p>
           </div>
 
@@ -84,7 +86,7 @@ export default function IllustrationPage() {
 
           <section className="pt-28 max-[900px]:pt-20 max-[640px]:pt-14">
             <SectionHeader className="mb-14 max-[640px]:mb-8">
-              Related articles or posts
+              Dream of the Red Chamber Series
             </SectionHeader>
 
             <div className="grid grid-cols-3 gap-7 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">

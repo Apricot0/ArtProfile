@@ -32,7 +32,7 @@ const traditionalArtItems = [
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="">
       <section className="px-0 py-[42px] pb-[90px] max-[640px]:pt-6 max-[640px]:pb-14">
         <div className={containerClass}>
           <div className="mb-11 grid grid-cols-[minmax(320px,560px)_1fr] items-start gap-8 max-[900px]:grid-cols-1">
