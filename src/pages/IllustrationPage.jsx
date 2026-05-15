@@ -6,7 +6,7 @@ import {
   containerClass,
 } from "../styles/classNames.js";
 
-import DotRImage from "../../assets/images/DotR.JPG";
+import DotRImage from "../../assets/images/DotR.jpg";
 
 const heroImage = {
   src: DotRImage,
